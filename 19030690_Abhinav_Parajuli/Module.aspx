@@ -3,8 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div>
     <asp:TextBox ID="txtID" runat="server" visible="false"></asp:TextBox>
-    <asp:TextBox ID="txtModuleName" runat="server" ></asp:TextBox>
-    <asp:TextBox ID="txtCreditHour" runat="server" ></asp:TextBox>
+    <asp:TextBox placeholder="Module Name" ID="txtModuleName" runat="server" ></asp:TextBox>
+    <asp:TextBox placeholder="Credit Hour" ID="txtCreditHour" runat="server" ></asp:TextBox>
 </div>
 
 <div>

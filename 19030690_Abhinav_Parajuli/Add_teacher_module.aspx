@@ -12,16 +12,21 @@
     <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" Text="Button" />
 
     <div>
-
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="TeacherModuleDatasource">
-            <Columns>
-                <asp:BoundField DataField="TEACHER_ID" HeaderText="TEACHER_ID" SortExpression="TEACHER_ID" />
-                <asp:BoundField DataField="TEACHER_NAME" HeaderText="TEACHER_NAME" SortExpression="TEACHER_NAME" />
-                <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE_NAME" SortExpression="MODULE_NAME" />
-                <asp:BoundField DataField="CREDIT_HOUR" HeaderText="CREDIT_HOUR" SortExpression="CREDIT_HOUR" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="TeacherModuleDatasource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT BERKELEY_COLLEGE.TEACHER.TEACHER_ID, BERKELEY_COLLEGE.TEACHER.TEACHER_NAME, BERKELEY_COLLEGE.MODULE.MODULE_NAME, BERKELEY_COLLEGE.MODULE.CREDIT_HOUR FROM BERKELEY_COLLEGE.TEACHER INNER JOIN BERKELEY_COLLEGE.TEACHER_MODULE ON BERKELEY_COLLEGE.TEACHER.TEACHER_ID = BERKELEY_COLLEGE.TEACHER_MODULE.TEACHER_ID INNER JOIN BERKELEY_COLLEGE.MODULE ON BERKELEY_COLLEGE.TEACHER_MODULE.MODULE_CODE = BERKELEY_COLLEGE.MODULE.MODULE_CODE"></asp:SqlDataSource>
+            <asp:GridView ID="GridView1" runat="server" DataKeyNames="TEACHER_ID,TEACHER_NAME,MODULE_CODE,MODULE_NAME,CREDIT_HOUR" OnRowEditing="OnRowEditing" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added." BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%" >
+        <AlternatingRowStyle BackColor="#F7F7F7" />
+        <Columns>
+            <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Delete" />
+        </Columns>
+        <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+        <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+        <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+        <SortedAscendingCellStyle BackColor="#F4F4FD" />
+        <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+        <SortedDescendingCellStyle BackColor="#D8D8F0" />
+        <SortedDescendingHeaderStyle BackColor="#3E3277" />
+    </asp:GridView>
 
     </div>
 </asp:Content>

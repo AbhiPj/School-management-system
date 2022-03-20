@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,8 +14,40 @@ namespace _19030690_Abhinav_Parajuli
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                this.BindGrid();
+            }
+        }
+
+        private void BindGrid()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OracleCommand cmd = new OracleCommand();
+            OracleConnection con = new OracleConnection(constr);
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = @"SELECT BERKELEY_COLLEGE.TEACHER.TEACHER_ID, BERKELEY_COLLEGE.TEACHER.TEACHER_NAME, BERKELEY_COLLEGE.MODULE.MODULE_CODE, BERKELEY_COLLEGE.MODULE.MODULE_NAME, BERKELEY_COLLEGE.MODULE.CREDIT_HOUR 
+                                FROM BERKELEY_COLLEGE.TEACHER INNER JOIN BERKELEY_COLLEGE.TEACHER_MODULE ON BERKELEY_COLLEGE.TEACHER.TEACHER_ID = 
+                                BERKELEY_COLLEGE.TEACHER_MODULE.TEACHER_ID INNER JOIN BERKELEY_COLLEGE.MODULE ON BERKELEY_COLLEGE.TEACHER_MODULE.MODULE_CODE = 
+                                BERKELEY_COLLEGE.MODULE.MODULE_CODE";
+            cmd.CommandType = CommandType.Text;
+
+            DataTable dt = new DataTable("TeacherModule");
+
+            using (OracleDataReader sdr = cmd.ExecuteReader())
+            {
+                dt.Load(sdr);
+            }
+
+            con.Close();
+
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
 
         }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -89,14 +122,9 @@ namespace _19030690_Abhinav_Parajuli
                         insert_teacher_module.ExecuteNonQuery();
                         con.Close();
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('added')", true);
-
                     }
-
-
-
-                    //studentGridView.EditIndex = -1;
-
                 }
+                this.BindGrid();
             }
             catch (Exception ex)
             {
@@ -104,5 +132,55 @@ namespace _19030690_Abhinav_Parajuli
             }           
             }
 
+        protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int ID = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+            int ModuleC = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[2]);
+
+            string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (OracleConnection con = new OracleConnection(constr))
+            {
+                using (OracleCommand cmd = new OracleCommand("DELETE FROM TEACHER_MODULE WHERE TEACHER_ID = '"+ ID + "' AND MODULE_CODE = '" + ModuleC +  "'"))
+                {
+
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            this.BindGrid();
+            //studentGridView.EditIndex = -1;
         }
-    } 
+
+        protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+
+
+            // get id for data update
+
+            TeacherDropdown.SelectedValue = this.GridView1.Rows[e.NewEditIndex].Cells[2].Text;
+            ModuleDropdown.SelectedValue = this.GridView1.Rows[e.NewEditIndex].Cells[4].Text;
+            btnSubmit.Text = "Update";
+
+        }
+
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GridView1.EditIndex)
+            {
+
+                // (e.Row.Cells[0].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
+
+
+            }
+            this.BindGrid();
+            GridView1.EditIndex = -1;
+
+        }
+
+
+    }
+} 

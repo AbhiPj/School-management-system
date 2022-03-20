@@ -173,7 +173,6 @@ namespace _19030690_Abhinav_Parajuli
 
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
-
             // get id for data update
             txtID.Text = this.studentGridView.Rows[e.NewEditIndex].Cells[2].Text;
             txtname.Text = this.studentGridView.Rows[e.NewEditIndex].Cells[3].Text.ToString().TrimStart().TrimEnd(); // (row.Cells[2].Controls[0] as TextBox).Text;

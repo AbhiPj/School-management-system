@@ -24,6 +24,15 @@ namespace _19030690_Abhinav_Parajuli
         protected global::System.Web.UI.WebControls.TextBox AssignmentType;
 
         /// <summary>
+        /// txtID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtID;
+
+        /// <summary>
         /// DepartmentDropdown control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace _19030690_Abhinav_Parajuli
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DepartmentDropdown;
+
+        /// <summary>
+        /// assignmentGridview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView assignmentGridview;
 
         /// <summary>
         /// DepartmentDatasource control.

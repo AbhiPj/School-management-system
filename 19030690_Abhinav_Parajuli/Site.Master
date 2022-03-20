@@ -41,6 +41,34 @@
                         </a>
                     </li>
 
+                   <li class="nav-link">
+                        <a href="/attendance">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Student Attendance</span>
+                        </a>
+                    </li>
+
+                                       <li class="nav-link">
+                        <a href="/assignment">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Assignment</span>
+                        </a>
+                    </li>
+
+                                       <li class="nav-link">
+                        <a href="/department">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text"></span>
+                            <span class="text nav-text">Department</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/add_teacher_module">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Add Teacher Module</span>
+                        </a>
+                    </li>
                     <li class="nav-link">
                         <a href="/teacher">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
@@ -70,7 +98,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/fee">
                             <i class='bx bx-pie-chart-alt icon'></i>
                             <span class="text nav-text">Fee</span>
                         </a>

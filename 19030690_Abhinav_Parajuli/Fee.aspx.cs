@@ -18,26 +18,34 @@ namespace _19030690_Abhinav_Parajuli
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string student_id = StudentDropdown.SelectedValue.ToString();
-            string department_id = DepartmentDropdown.SelectedValue.ToString();
-            string fee_status = FeeStatusDropdown.SelectedValue.ToString();
-
-
-
-
-
-            string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            OracleConnection con = new OracleConnection(constr);
-
-            if (btnSubmit.Text == "Button")
+            try
             {
-                OracleCommand cmd = new OracleCommand("INSERT INTO FEE(STUDENT_ID, DEPARTMENT_ID, FEE_STATUS)Values('" + student_id + "','" + department_id + "' , '" + fee_status + "')");
-                cmd.Connection = con;
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                string student_id = StudentDropdown.SelectedValue.ToString();
+                string department_id = DepartmentDropdown.SelectedValue.ToString();
+                string fee_status = FeeStatusDropdown.SelectedValue.ToString();
 
+
+
+
+
+                string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                OracleConnection con = new OracleConnection(constr);
+
+                if (btnSubmit.Text == "Button")
+                {
+                    OracleCommand cmd = new OracleCommand("INSERT INTO FEE(STUDENT_ID, DEPARTMENT_ID, FEE_STATUS)Values('" + student_id + "','" + department_id + "' , '" + fee_status + "')");
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                }
             }
+            catch(Exception ex)
+            {
+                
+            }
+        
 
         }
     }
