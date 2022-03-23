@@ -5,13 +5,11 @@
     <asp:TextBox ID="txtID" runat="server" visible="false"></asp:TextBox>
     <asp:TextBox ID="txtname" placeholder="Student Name" runat="server" ></asp:TextBox>
     <asp:TextBox ID="txtaddress" placeholder="Address" runat="server" ></asp:TextBox>
-    <asp:DropDownList ID="moduleDropdown" runat="server" DataSourceID="ModuleDatasource" DataTextField="MODULE_NAME" DataValueField="MODULE_CODE">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="ModuleDatasource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;MODULE_CODE&quot;, &quot;MODULE_NAME&quot; FROM &quot;MODULE&quot;"></asp:SqlDataSource>
+    <asp:TextBox ID="txtattendance" placeholder="Attendance" runat="server" ></asp:TextBox>
 </div>
 
 <div>
-    <asp:GridView ID="studentGridView" runat="server" DataKeyNames="STUDENT_ID,STUDENT_NAME,STUDENT_ADDRESS"  OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing" OnRowCancelingEdit ="OnRowCancelingEdit"  OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added." BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%" >
+    <asp:GridView ID="studentGridView" runat="server" DataKeyNames="STUDENT_ID,STUDENT_NAME,STUDENT_ADDRESS,ATTENDANCE"  OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing" OnRowCancelingEdit ="OnRowCancelingEdit"  OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added." BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%" >
         <AlternatingRowStyle BackColor="#F7F7F7" />
         <Columns>
             <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Delete" />

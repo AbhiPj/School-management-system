@@ -11,53 +11,80 @@ namespace _19030690_Abhinav_Parajuli
 {
 
 
-    public partial class Attendance
+    public partial class ModuleAssignment
     {
 
         /// <summary>
-        /// txtID control.
+        /// txtStudentId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
+        protected global::System.Web.UI.WebControls.TextBox txtStudentId;
 
         /// <summary>
-        /// studentDropdown control.
+        /// txtAssignmentId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList studentDropdown;
+        protected global::System.Web.UI.WebControls.TextBox txtAssignmentId;
 
         /// <summary>
-        /// moduleDropdown control.
+        /// txtModuleCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList moduleDropdown;
+        protected global::System.Web.UI.WebControls.TextBox txtModuleCode;
 
         /// <summary>
-        /// txtattendance control.
+        /// AssignmentDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtattendance;
+        protected global::System.Web.UI.WebControls.DropDownList AssignmentDropdown;
 
         /// <summary>
-        /// ModuleDataSource control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ModuleDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// ModuleDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ModuleDropdown;
+
+        /// <summary>
+        /// ModuleDatasource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource ModuleDatasource;
+
+        /// <summary>
+        /// StudentDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList StudentDropdown;
 
         /// <summary>
         /// StudentDatasource control.
@@ -69,13 +96,22 @@ namespace _19030690_Abhinav_Parajuli
         protected global::System.Web.UI.WebControls.SqlDataSource StudentDatasource;
 
         /// <summary>
-        /// attendanceGridview control.
+        /// GradeDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView attendanceGridview;
+        protected global::System.Web.UI.WebControls.DropDownList GradeDropdown;
+
+        /// <summary>
+        /// mdGridview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView mdGridview;
 
         /// <summary>
         /// btnSubmit control.

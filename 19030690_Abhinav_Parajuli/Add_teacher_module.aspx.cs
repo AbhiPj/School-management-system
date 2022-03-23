@@ -58,8 +58,7 @@ namespace _19030690_Abhinav_Parajuli
                 string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 OracleConnection con = new OracleConnection(constr);
 
-                if (btnSubmit.Text == "Button")
-                {
+
                     //Getting all Teacher Id and module_code for validation
                     OracleCommand all_id = new OracleCommand("SELECT TEACHER_ID,MODULE_CODE FROM TEACHER_MODULE");
                     all_id.Connection = con;
@@ -116,14 +115,14 @@ namespace _19030690_Abhinav_Parajuli
                     }
                     else
                     {
-                        OracleCommand insert_teacher_module = new OracleCommand("INSERT INTO TEACHER_MODULE(TEACHER_ID, MODULE_CODE)Values('" + teacher_id + "','" + module_code + "')");
-                        insert_teacher_module.Connection = con;
+                        OracleCommand insert_teacher_module = new OracleCommand("INSERT into TEACHER_MODULE(Teacher_ID, MODULE_CODE)Values('" + teacher_id + "','" + module_code + "')");
+                    insert_teacher_module.Connection = con;
                         con.Open();
                         insert_teacher_module.ExecuteNonQuery();
                         con.Close();
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('added')", true);
                     }
-                }
+
                 this.BindGrid();
             }
             catch (Exception ex)
@@ -180,6 +179,7 @@ namespace _19030690_Abhinav_Parajuli
             GridView1.EditIndex = -1;
 
         }
+
 
 
     }

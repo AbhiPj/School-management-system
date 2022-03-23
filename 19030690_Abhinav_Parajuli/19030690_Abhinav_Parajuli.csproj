@@ -140,7 +140,8 @@
     <Content Include="Address.aspx" />
     <Content Include="Add_teacher_module.aspx" />
     <Content Include="Assignment.aspx" />
-    <Content Include="Attendance.aspx" />
+    <Content Include="ModuleAssignment.aspx" />
+    <Content Include="StudentModule.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -187,6 +188,7 @@
     <Content Include="Students.aspx" />
     <Content Include="Teacher.aspx" />
     <Content Include="teacher_module.aspx" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -252,12 +254,19 @@
     <Compile Include="Assignment.aspx.designer.cs">
       <DependentUpon>Assignment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Attendance.aspx.cs">
-      <DependentUpon>Attendance.aspx</DependentUpon>
+    <Compile Include="ModuleAssignment.aspx.cs">
+      <DependentUpon>ModuleAssignment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Attendance.aspx.designer.cs">
-      <DependentUpon>Attendance.aspx</DependentUpon>
+    <Compile Include="ModuleAssignment.aspx.designer.cs">
+      <DependentUpon>ModuleAssignment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentModule.aspx.cs">
+      <DependentUpon>StudentModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentModule.aspx.designer.cs">
+      <DependentUpon>StudentModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -493,6 +502,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

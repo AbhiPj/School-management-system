@@ -29,7 +29,7 @@ namespace _19030690_Abhinav_Parajuli
             OracleConnection con = new OracleConnection(constr);
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = @"SELECT STUDENT_ID, STUDENT_NAME, STUDENT_ADDRESS FROM STUDENT";
+            cmd.CommandText = @"SELECT STUDENT_ID, STUDENT_NAME, STUDENT_ADDRESS,ATTENDANCE FROM STUDENT";
             cmd.CommandType = CommandType.Text;
 
             DataTable dt = new DataTable("student");
@@ -62,7 +62,6 @@ namespace _19030690_Abhinav_Parajuli
             {
                 using (OracleCommand cmd = new OracleCommand("DELETE FROM student WHERE student_Id =" + ID))
                 {
-
                     cmd.Connection = con;
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -115,8 +114,10 @@ namespace _19030690_Abhinav_Parajuli
             // insert code
             string name = txtname.Text.ToString();
             string address = txtaddress.Text.ToString();
-            string module_code = moduleDropdown.SelectedValue.ToString();
-            
+            string attendance = txtattendance.Text.ToString();
+
+
+
 
 
 
@@ -125,13 +126,13 @@ namespace _19030690_Abhinav_Parajuli
 
             if (btnSubmit.Text == "Button")
             {
-                OracleCommand cmd = new OracleCommand("Insert into student(Student_Name, Student_Address)Values('" + name + "','" + address + "')");
+                OracleCommand cmd = new OracleCommand("INSERT INTO STUDENT(STUDENT_NAME, STUDENT_ADDRESS, ATTENDANCE)VALUES('" + name + "','" + address + "' , '" + attendance + "')");
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                OracleCommand get_module_id = new OracleCommand("SELECT MAX(STUDENT_ID) FROM STUDENT");
+                /*OracleCommand get_module_id = new OracleCommand("SELECT MAX(STUDENT_ID) FROM STUDENT");
                 get_module_id.Connection = con;
                 con.Open();
                 OracleDataReader dr2 = get_module_id.ExecuteReader();
@@ -144,7 +145,7 @@ namespace _19030690_Abhinav_Parajuli
                 insert_student_module.Connection = con;
                 con.Open();
                 insert_student_module.ExecuteNonQuery();
-                con.Close();
+                con.Close();*/
 
             }
 
@@ -152,7 +153,7 @@ namespace _19030690_Abhinav_Parajuli
             {
                 //get ID for the Update
                 string ID = txtID.Text.ToString();
-                OracleCommand cmd = new OracleCommand("update student set Student_name = '" + name + "', Student_address = '" + address + "' where Student_Id = " + ID);
+                OracleCommand cmd = new OracleCommand("UPDATE STUDENT SET STUDENT_NAME = '" + name + "', STUDENT_ADDRESS = '" + address + "', ATTENDANCE = '" + attendance + "' where Student_Id = " + ID);
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -177,6 +178,8 @@ namespace _19030690_Abhinav_Parajuli
             txtID.Text = this.studentGridView.Rows[e.NewEditIndex].Cells[2].Text;
             txtname.Text = this.studentGridView.Rows[e.NewEditIndex].Cells[3].Text.ToString().TrimStart().TrimEnd(); // (row.Cells[2].Controls[0] as TextBox).Text;
             txtaddress.Text = this.studentGridView.Rows[e.NewEditIndex].Cells[4].Text;
+            txtattendance.Text = this.studentGridView.Rows[e.NewEditIndex].Cells[5].Text;
+
             btnSubmit.Text = "Update";
             //studentGridView.EditIndex = -1;
 

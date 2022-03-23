@@ -11,7 +11,7 @@ namespace _19030690_Abhinav_Parajuli
 {
 
 
-    public partial class Students
+    public partial class Attendance
     {
 
         /// <summary>
@@ -24,40 +24,49 @@ namespace _19030690_Abhinav_Parajuli
         protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
-        /// txtname control.
+        /// studentDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtname;
+        protected global::System.Web.UI.WebControls.DropDownList studentDropdown;
 
         /// <summary>
-        /// txtaddress control.
+        /// moduleDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtaddress;
+        protected global::System.Web.UI.WebControls.DropDownList moduleDropdown;
 
         /// <summary>
-        /// txtattendance control.
+        /// ModuleDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtattendance;
+        protected global::System.Web.UI.WebControls.SqlDataSource ModuleDataSource;
 
         /// <summary>
-        /// studentGridView control.
+        /// StudentDatasource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView studentGridView;
+        protected global::System.Web.UI.WebControls.SqlDataSource StudentDatasource;
+
+        /// <summary>
+        /// attendanceGridview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView attendanceGridview;
 
         /// <summary>
         /// btnSubmit control.
